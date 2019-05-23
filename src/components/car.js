@@ -1,5 +1,24 @@
 import React, { Component } from "react";
-import Project from "./project";
+// import Project from "./project";
+
+let carsArray = [
+  {
+    make: "BMW",
+    model: "325i",
+    year: 1989,
+    nickname: "Rogue 3",
+    projects: ["Misfire ", "Air Conditioning"],
+    displayProjects: false
+  },
+  {
+    make: "Scion",
+    model: "xB",
+    year: 2009,
+    nickname: "Brave Little Toaster",
+    projects: ["Headlamp ", "Bumper"],
+    displayProjects: false
+  }
+];
 
 class Car extends Component {
   constructor(props) {
@@ -8,32 +27,29 @@ class Car extends Component {
       make: "BMW",
       model: "325i",
       year: 1989,
+      nickname: "Rogue 3",
       projects: ["Misfire ", "Air Conditioning"],
-      displayProjects: false,
+      displayProjects: false
     };
   }
   render() {
-    console.log(this.state);
-    let { make, year, model, projects } = this.state;
+    // console.log(this.state);
+    // let { make, year, model, projects } = this.state;
+    let carsList = carsArray.map((carObject, index) => {
+      return (
+        <div key={index}>
+          <h1 key="nickname">"{carObject.nickname}"</h1>
+          <h5>
+            {carObject.year} {carObject.make} {carObject.model}
+          </h5>
+          <li>{carObject.projects[0]}</li>
+          <li>{carObject.projects[1]}</li>
+        </div>
+      );
+    });
     return (
       <nav>
-        <header>
-          <h1>Rogue Garage</h1>
-        </header>
-        <div>
-          <button onClick={() => {console.log(projects)}}>
-            "Rogue 3" {year} {make} {model}
-          </button>
-          <div>
-            {/* The following code was put into a
-             functional component names project.js */}
-            {/* <h4>Projects</h4>
-            {projects.map((element, index) => {
-              return <li>{element}</li>;
-            })} */}
-            <Project projects={this.state.projects}/>
-          </div>
-        </div>
+        <div>{carsList}</div>
       </nav>
     );
   }
