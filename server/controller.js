@@ -15,6 +15,20 @@ const addCar = (req, res) => {
     garage.push(req.body)
     res.status(200).json(garage)
 }
+
+const updateCar = (req, res) => {
+    
+}
+const deleteCar = (req, res) => {
+
+}
+const updateProject = (req, res) => {
+
+}
+const deleteProject = (req, res) => {
+
+}
+
 module.exports = {
     getGarage,
     addCar

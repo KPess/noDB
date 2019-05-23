@@ -7,6 +7,13 @@ app.use(express.json())
 
 app.get(url, controller.getGarage)
 app.post(url, controller.addCar)
+//app.put(url, controller.updateCar)
+//app.delete (url, controller.deleteCar)
+//app.put(url, controller.updateProject)
+//app.delete (url, controller.deleteProject)
+//app.post (url, controller.addProject)
+
+
 app.listen(PORT_SERVER, () => {
     console.log(`Listening on ${PORT_SERVER}`)
 })
