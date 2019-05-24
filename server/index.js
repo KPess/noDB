@@ -15,7 +15,7 @@ app.post(url, controller.addCar)
 
 
 app.listen(PORT_SERVER, () => {
-    console.log(`Listening on ${PORT_SERVER}`)
+    console.log(`Listening on ${PORT_SERVER}`);
 })
 
 

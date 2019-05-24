@@ -1,11 +1,25 @@
 body {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
     font-size: 2em;
-    background-color: gray;
+    background-color: rgb(207, 33, 33);
+    height: 100vh;
+    margin: auto;
 
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+}
+.box1 {
+    margin-top: 0;
+    padding-top: 0;
 }
 
 li {
