@@ -7,7 +7,6 @@ class Car extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      // view: "view",
       garage: [],
       year: "",
       make: "",
@@ -17,13 +16,10 @@ class Car extends Component {
     };
     this.handleChange = this.handleChange.bind(this);
     this.updateGarage = this.updateGarage.bind(this);
-    //   this.changeView = this.changeView.bind(this);
+    this.deleteCar = this.deleteCar.bind(this);
+    
   }
 
-  // }
-  // changeView(newView) {
-  //   this.setState({ view: newView });
-  // }
   componentDidMount() {
     axios.get("/api/garage").then(response => {
       this.setState({ garage: response.data });
@@ -45,12 +41,15 @@ class Car extends Component {
     axios
       .post("/api/garage", newCar)
       .then(response => {
-        console.log("res", response);
         this.setState({ garage: response.data });
+        this.props.changeView("garage");
       })
       .catch(error => {
         console.log(error);
       });
+  }
+  deleteCar(garage) {
+    this.setState({garage: garage})
   }
 
   render() {
@@ -94,9 +93,9 @@ class Car extends Component {
             <button type="button" onClick={() => this.updateGarage(garage)}>
               Park
             </button>
-            {/* <button type="reset">Reset fields</button> */}
+            {/* <input type="reset" value="reset"/> */}
           </form>
-          <Project garage={garage} />
+          <Project garage={garage} projects={projects} deleteCar={this.deleteCar}/>
           {/* <Projects projects={projects}/> */}
         </main>
       </div>

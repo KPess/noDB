@@ -4,7 +4,7 @@ function SubHeader() {
   return (
     <div className="SubHeader">
       <header className="box1">
-        <h3>Rogue Squadron Hangar</h3>
+        <p>and add two projects</p>
       </header>
     </div>
   );

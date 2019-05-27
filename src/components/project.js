@@ -1,19 +1,5 @@
-// import React from "react";
-
-// function Project(props) {
-//   return (
-//     <div className="Project">
-//       <h4>Projects</h4>
-//       {props.projects.map((element, index) => {
-//         return <li key={index}>{element}</li>;
-//       })}
-//     </div>
-//   );
-// }
-
-// export default Project;
 import React, { Component } from "react";
-
+import axios from "axios";
 
 class Project extends Component {
   constructor(props) {
@@ -22,10 +8,10 @@ class Project extends Component {
       
     };
   }
+
   render() {
-    console.log(this.props);
-    // let { make, year, model, projects } = this.state;
-    let carsList = this.props.garage.map((carObject, index) => {
+    const { garage } = this.props;
+    let carsList = garage.map((carObject, index) => {
       return (
         <div key={index}>
           <h1 key="nickname">"{carObject.nickname}"</h1>
@@ -36,6 +22,20 @@ class Project extends Component {
             <li>{carObject.projects[0]}</li>
             <li>{carObject.projects[1]}</li>
           </ul>
+          <button
+            onClick={() => {
+              axios
+              .delete("/api/garage/" + carObject.id)
+              .then(response => {
+                this.props.deleteCar(response.data);
+              })
+              .catch(error => {
+                console.log(error);
+              });
+            }}
+          >
+            Delete Car
+          </button>
         </div>
       );
     });
