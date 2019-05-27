@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./App.css";
-import Car from "./components/car";
+import Car from "./components/Car";
 import axios from "axios";
 
 class App extends Component {
@@ -34,13 +34,13 @@ class App extends Component {
     this.setState({ [e.target.name]: e.target.value });
   }
   updateGarage(garage) {
-    let { year, make, model, nickname, projects, id } = this.state;
+    let { year, make, model, nickname, projects } = this.state;
     let newCar = {
       year: year,
       make: make,
       model: model,
       nickname: nickname,
-      projects: projects
+      projects: projects.split(",")
     };
     axios
       .post("/api/garage", newCar)
@@ -90,14 +90,14 @@ class App extends Component {
             />
             <input
               name="projects"
-              placeholder="Add a project"
+              placeholder="Comma between projects"
               value={projects}
               onChange={this.handleChange}
             />
             <button type="button" onClick={() => this.updateGarage(garage)}>
               Park
             </button>
-            <button type="reset">Reset fields</button>
+            {/* <button type="reset">Reset fields</button> */}
           </form>
           <Car garage={garage} />
         </main>
