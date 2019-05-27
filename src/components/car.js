@@ -2,7 +2,10 @@ import React, { Component } from "react";
 import "../App.css";
 import axios from "axios";
 import Project from "./Project";
-
+import Footer from "./Footer";
+import Emblem from "./Emblem";
+import Header1 from "./Header1"
+import SubHeader from "./SubHeader"
 class Car extends Component {
   constructor(props) {
     super(props);
@@ -17,7 +20,6 @@ class Car extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.updateGarage = this.updateGarage.bind(this);
     this.deleteCar = this.deleteCar.bind(this);
-    
   }
 
   componentDidMount() {
@@ -49,7 +51,7 @@ class Car extends Component {
       });
   }
   deleteCar(garage) {
-    this.setState({garage: garage})
+    this.setState({ garage: garage });
   }
 
   render() {
@@ -57,6 +59,10 @@ class Car extends Component {
     return (
       <div>
         <main className="main">
+        <div className="subheader">
+            <Header1 />
+            <SubHeader />
+          </div>
           <form>
             <input
               name="year"
@@ -95,9 +101,17 @@ class Car extends Component {
             </button>
             {/* <input type="reset" value="reset"/> */}
           </form>
-          <Project garage={garage} projects={projects} deleteCar={this.deleteCar}/>
+          <Project
+            garage={garage}
+            projects={projects}
+            deleteCar={this.deleteCar}
+          />
           {/* <Projects projects={projects}/> */}
         </main>
+        <footer>
+          <Emblem />
+          <Footer />
+        </footer>
       </div>
     );
   }

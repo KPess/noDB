@@ -38,8 +38,6 @@ class App extends Component {
         </nav>
         <header>
           <Header/>
-          <Header1 />
-          <SubHeader />
         </header>
         {this.state.view === "garage" ? (
           <Car />
