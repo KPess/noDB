@@ -5,7 +5,7 @@ body {
     align-items: center;
     text-align: center;
     font-size: 2em;
-    background-color: red;
+    background-color: #720707;
     /* height: 100vh; */
     margin: auto;
 
@@ -21,12 +21,12 @@ header {
 }
 
 .box1 {
-    color: blue;
+    color: #b81616;
     font-size: .5em;
 }
 
 .box2 {
-    color: green;
+    color: rgb(110, 108, 108);
 }
 
 .main {
@@ -34,7 +34,7 @@ header {
     flex-direction: column;
     justify-content: space-evenly;
     background-color: black;
-    color: red;
+    color: #ff040498;
 
 }
 .box1 {
@@ -47,15 +47,16 @@ li {
 }
 button {
     background-color: black;
-    color: red;
-    border-color: red;
+    color: #720707;
+    border-color: #720707;
 
 }
 
 input {
     background-color: black;
     border-radius: 1em;
-    border-color: red;
+    border-color: #720707;
+    color: #b81616;
     
 }
 
@@ -73,4 +74,8 @@ input {
     justify-content: space-around;
     align-items: center;
     max-width: 100px;
+}
+
+nav {
+    background-color: #1d1b1b;
 }
