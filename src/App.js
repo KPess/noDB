@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import "./App.css";
 import Car from "./components/Car";
-import Header1 from "./components/Header1";
-import SubHeader from "./components/SubHeader";
 import Info from "./components/Info";
 import Header from "./components/Header";
 
